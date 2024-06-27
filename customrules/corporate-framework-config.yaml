@@ -5,6 +5,7 @@
   category: mandatory
   effort: 10
   labels:
+    - "konveyor.io/source=java"
     - "konveyor.io/target=cloud-readiness"
   when:
     or:
