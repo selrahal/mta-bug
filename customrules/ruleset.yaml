@@ -1,0 +1,6 @@
+name: pnc-ruleset
+description: "this is here to fix errors"
+labels:
+  - "konveyor.io/source=java"
+  - "konveyor.io/target=cloud-readiness"
+
