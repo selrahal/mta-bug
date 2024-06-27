@@ -61,6 +61,11 @@
                     <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
                     <tag>storage</tag>
                 </hint>
+                <technology-identified name="Orion EJB XML">
+                    <tag name="Connect"/>
+                    <tag name="Bean"/>
+                    <tag name="Java EE"/>
+                </technology-identified>
             </perform>
             <where param="ioclass">
                 <matches pattern="(FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile)"/>
