@@ -8,13 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/customers")
 public class CustomerController {
 	
 	@Autowired
@@ -22,8 +16,7 @@ public class CustomerController {
 	
 	private static Logger logger = Logger.getLogger( CustomerController.class.getName() );
 	
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Customer getById(@PathVariable("id") Long id) {
+    public Customer getById(Long id) {
 		Customer c = customerService.findById(id);
 		if (c == null) {
 			throw new ResourceNotFoundException("Requested order doesn't exist");
@@ -32,7 +25,6 @@ public class CustomerController {
 		return c;
 	}
 	
-	@RequestMapping
 	public Page<Customer> findAll(Pageable pageable){
 		return customerService.findAll(pageable);
 	}
