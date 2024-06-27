@@ -1,0 +1,8 @@
+when:
+  java.referenced:
+    pattern: "io.konveyor.demo.config.ApplicationConfiguration"
+    location: "VARIABLE_DECLARATION"
+message: "MATCHED!!!!!!!"
+tag:
+  - "3rd party=Apache Aries"
+  - "testing my rules match"
