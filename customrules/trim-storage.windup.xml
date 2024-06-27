@@ -5,10 +5,12 @@
         <description>
             This ruleset detects local storage usage, which is problematic when migrating an application to a cloud environment.
         </description>
+     <!--
         <dependencies>
             <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final" />
             <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final" />
         </dependencies>
+     -->
         <targetTechnology id="cloud-readiness" />
         <tag>storage</tag>
     </metadata>

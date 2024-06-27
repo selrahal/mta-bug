@@ -3,27 +3,14 @@
     API exposed by microservice
     This REST controller exposes an api, it needs to be registered.
   category: mandatory
-  effort: 1
+  effort: 10
   labels:
     - "konveyor.io/target=cloud-readiness"
   when:
     or:
-    - java.referenced:
-        pattern: "org.springframework.web.bind.annotation.RestController"
-        location: "ANNOTATION"
-    - java.referenced:
-        pattern: "java.io.{ioclass}{*}"
-        location: "CONSTRUCTOR_CALL"
-    - java.referenced:
-        pattern: "java.util.zip.ZipFile{*}"
-        location: "CONSTRUCTOR_CALL"
-    - java.referenced:
-        pattern: "java.io.File.createTempFile({*})"
-        location: "METHOD_CALL"
     - java.referenced:
         pattern: "java.nio.file.Paths.get({*})"
         location: "METHOD_CALL"
   message: "REST Controller found, did you register this in the firewall for ARO?"
   tag:
     - "3rd party=Apache Aries"
-    - "testing my rules match"
