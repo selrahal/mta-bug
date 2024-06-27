@@ -1,11 +1,16 @@
-- ruleID: sal-test
+- ruleID: register-apis
+  description:  |
+    API exposed by microservice
+    This REST controller exposes an api, it needs to be registered.
+  category: mandatory
+  effort: 1
   labels:
     - "konveyor.io/target=cloud-readiness"
   when:
     java.referenced:
-      pattern: "io.konveyor.demo.config.ApplicationConfiguration"
-      location: "VARIABLE_DECLARATION"
-  message: "MATCHED!!!!!!!"
+      pattern: "org.springframework.web.bind.annotation.RestController"
+      location: "ANNOTATION"
+  message: "REST Controller found, did you register this in the firewall for ARO?"
   tag:
     - "3rd party=Apache Aries"
     - "testing my rules match"
