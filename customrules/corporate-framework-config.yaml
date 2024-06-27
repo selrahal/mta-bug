@@ -1,4 +1,6 @@
 - ruleID: sal-test
+  labels:
+    - "konveyor.io/target=cloud-readiness"
   when:
     java.referenced:
       pattern: "io.konveyor.demo.config.ApplicationConfiguration"
