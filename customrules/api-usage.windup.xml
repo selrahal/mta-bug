@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
-<ruleset id="local-storage" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruleset id="api-usage" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <metadata>
         <description>
-            This ruleset detects local storage usage, which is problematic when migrating an application to a cloud environment.
+            This ruleset detects microservices that expose APIs.
         </description>
         <targetTechnology id="cloud-readiness" />
-        <tag>storage</tag>
+        <tag>api</tag>
     </metadata>
     <rules>
-        <rule id="local-storage-00001">
+        <rule id="api-usage-00001">
             <when>
-                    <javaclass references="java.nio.file.Paths.get({*})">
-                        <location>METHOD_CALL</location>
+                    <javaclass references="org.springframework.web.bind.annotation.GetMapping">
+                        <location>ANNOTATION</location>
+                    </javaclass> 
+                    <javaclass references="org.springframework.web.bind.annotation.RequestMapping">
+                        <location>ANNOTATION</location>
                     </javaclass> 
             </when>
             <perform>
@@ -38,8 +41,8 @@
                     <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
                     <tag>storage</tag>
                 </hint>
-                <technology-identified name="Local Storage">
-                    <tag name="Storage"/>
+                <technology-identified name="Exposed APIs">
+                    <tag name="API"/>
                 </technology-identified>
             </perform>
         </rule>
