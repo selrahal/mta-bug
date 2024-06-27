@@ -23,7 +23,7 @@
                     <javaclass references="java.io.{ioclass}{*}">
                         <location>CONSTRUCTOR_CALL</location>
                     </javaclass>
-                    <javaclass references="java.util.zip.ZipFile{*}">
+<!--                    <javaclass references="java.util.zip.ZipFile{*}">
                         <location>CONSTRUCTOR_CALL</location>
                     </javaclass>
                     <javaclass references="java.io.File.createTempFile({*})">
@@ -31,7 +31,7 @@
                     </javaclass>
                     <javaclass references="java.nio.file.Paths.get({*})">
                         <location>METHOD_CALL</location>
-                    </javaclass>
+                    </javaclass> -->
                 </or>
             </when>
             <perform>
